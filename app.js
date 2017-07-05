@@ -126,7 +126,7 @@
 // var greet = require('./greet2.js').greet;
 // greet();
 
-// Twelth Lecture
+// Twelfth Lecture
 var greet = require('./greet3.js');
 greet.greet();
 greet.greeting = 'Changed hello world';
