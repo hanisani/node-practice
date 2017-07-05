@@ -127,16 +127,27 @@
 // greet();
 
 // Twelfth Lecture
-var greet = require('./greet3.js');
-greet.greet();
-greet.greeting = 'Changed hello world';
+// var greet = require('./greet3.js');
+// greet.greet();
+// greet.greeting = 'Changed hello world';
 
-var greet3 = require('./greet3.js');
-greet3.greet();
+// var greet3 = require('./greet3.js');
+// greet3.greet();
 
-var Greeter = require('./greet4.js');
-var greet4 = new Greeter();
-greet4.greet();
+// var Greeter = require('./greet4.js');
+// var greet4 = new Greeter();
+// greet4.greet();
 
-var greet5 = require('./greet5.js');
-greet5.greet();
+// var greet5 = require('./greet5.js');
+// greet5.greet();
+
+// Thirteenth Lecture
+// var greet = require('./greet.js');
+// var greet6 = require('./greet6.js');
+// greet6.greet();
+
+// Fourteenth Lecture
+var util = require('util');
+var name = 'Faheem';
+var greeting = util.format('Hello, %s', name);
+util.log(greeting);
