@@ -147,7 +147,99 @@
 // greet6.greet();
 
 // Fourteenth Lecture
-var util = require('util');
-var name = 'Faheem';
-var greeting = util.format('Hello, %s', name);
-util.log(greeting);
+// var util = require('util');
+// var name = 'Faheem';
+// var greeting = util.format('Hello, %s', name);
+// util.log(greeting);
+
+// Fifteenth Lecture
+// var obj = {
+//     greet: 'Hello'
+// }
+
+// console.log(obj.greet);
+// console.log(obj['greet']);
+
+// var prop = 'greet';
+// console.log(obj[prop]);
+
+// var arr = [];
+
+// arr.push(function() {
+//     console.log('Hello world one');
+// });
+// arr.push(function() {
+//     console.log('Hello world two');
+// });
+// arr.push(function() {
+//     console.log('Hello world three');
+// });
+
+// arr.forEach(function(item) {
+//     item();
+// })
+
+//arr.push('Hello world two');
+
+// Sixteenth Lecture
+//var Emitter = require('./emitter.js');
+// Note: For build in files don't use file extension. e.g. use like events and not like events.js
+// var Emitter = require('events'); // Use build in/Internal events.js Emitter
+// var Config = require('./config.js');
+
+// var emitter = new Emitter();
+// var events = Config.events;
+
+// emitter.on(events.GREET, function() {
+//     console.log('Somewhere, someone said hello.');
+// });
+// emitter.on(events.GREET, function() {
+//     console.log('A greeting occurred');
+// });
+
+// console.log('Hello');
+// emitter.emit(events.GREET);
+
+// Eighteenth Lecture
+// var person = {
+//     firstName: '',
+//     lastName: '',
+//     greet: function() {
+//         return this.firstName + ' ' + this.lastName;
+//     }
+// }
+
+// var faheem = Object.create(person);
+// faheem.firstName = 'Faheem';
+// faheem.lastName = 'Ahmad';
+
+// var ali = Object.create(person);
+// ali.firstName = 'Ali';
+// ali.lastName = 'Khan';
+
+// console.log(faheem.greet());
+// console.log(ali.greet());
+
+// Nineteenth Lecture
+// var EventEmitter = require('events');
+// var util = require('util');
+
+// function Greeter() {
+//     this.greeting = 'Hello world';
+// }
+
+// util.inherits(Greeter, EventEmitter);
+
+// Greeter.prototype.greet = function(data) {
+//     console.log(this.greeting + ' : ' + data);
+//     this.emit('greet', data);
+// }
+
+// var greeter1 = new Greeter();
+// greeter1.on('greet', function(data) {
+//     console.log('Someone greeted : ' + data);
+// });
+
+// greeter1.greet('Faheem');
+
+// Twentieth Lecture
