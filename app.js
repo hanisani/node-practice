@@ -243,3 +243,73 @@
 // greeter1.greet('Faheem');
 
 // Twentieth Lecture
+// var name = 'Faheem Ahmad';
+// var greet = 'Hello ' + name;
+// var greet2 = `Hello ${ name }`;
+
+// console.log(greet);
+// console.log(greet2);
+
+// Twenty First Lecture
+// var obj = {
+//     name: 'Faheem Ahmad',
+//     greet: function() {
+//         console.log(`Hello ${ this.name }`);
+//     }
+// }
+
+// obj.greet();
+// obj.greet.call({ name: 'Ali Khan' }); // Here we canpass multiple parameters as comma separated
+// obj.greet.apply({ name: 'Hani Khan' }); // Here we can pass array of more than one parameters
+
+// Twenty Second Lecture
+// var EventEmitter = require('events');
+// var util = require('util');
+
+// function Greeter() {
+//     EventEmitter.call(this);
+//     this.greeting = 'Hello world';
+// }
+
+// util.inherits(Greeter, EventEmitter);
+
+// Greeter.prototype.greet = function(data) {
+//     console.log(this.greeting + ' : ' + data);
+//     this.emit('greet', data);
+// }
+
+// var greeter1 = new Greeter();
+// greeter1.on('greet', function(data) {
+//     console.log('Someone greeted : ' + data);
+// });
+
+// greeter1.greet('Faheem');
+
+// Twenty Third Lecture
+// 'use strict';
+
+// class Person {
+//     constructor(firstName, lastName) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+
+//     greet() {
+//         console.log('Hello, ' + this.firstName + ' ' + this.lastName);
+//     }    
+// }
+
+// var faheem = new Person('Faheem', 'Ahmad');
+// faheem.greet();
+
+// Twenty Fourth Lecture
+'use strict';
+var Greeter = require('./greeter');
+
+var greeter = new Greeter();
+
+greeter.on('greet', function(data) {
+    console.log('Someone greeted : ' + data);
+});
+
+greeter.greet('Faheem');
