@@ -484,7 +484,87 @@
 // }).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
 
 // 37 Lecture
-var express = require('express');
-var app = express();
+// var express = require('express');
+// var app = express();
+// var port = process.env.port || 3000;
 
-app.listen(3000);
+// app.get('/', function(request, response) {
+//     response.send('<html><head></head><body><h1>Hello World!!!</h1></body></html>');
+// });
+
+// app.get('/person/:id', function(request, response) {
+//     response.send('<html><head></head><body><h1>Person: '+ request.params.id +'</h1></body></html>');
+// });
+
+// app.get('/person/:page/:id', function(request, response) {
+//     response.send('<html><head></head><body><h1>Person: '+ request.params.page +'</h1><h1> id: '+ request.params.id +'</h1></body></html>');
+// });
+
+// app.get('/api', function(request, response) {
+//     response.json({
+//         firstName: 'Ali',
+//         lastName: 'Khan'
+//     });
+// });
+
+// app.listen(port);
+
+// 38 Lecture
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var port = process.env.port || 3000;
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var jsonParser = bodyParser.json();
+
+app.use('/assets', express.static(__dirname + '/public'));
+app.use('/', function(request, response, next) {
+    console.log('Request URL : ' + request.url);
+    next();
+});
+
+app.set('view engine', 'ejs');
+
+// app.get('/', function(request, response) {
+//     response.send('<html><head><link href=assets/style.css type=text/css rel=stylesheet /></head><body><h1>Hello World!!!</h1></body></html>');
+// });
+// app.get('/', function(request, response) {
+//     response.render('index');
+// });
+app.get('/', function(request, response) {
+    response.render('index');
+});
+// app.get('/person/:id', function(request, response) {
+//     response.send('<html><head></head><body><h1>Person: '+ request.params.id +'</h1></body></html>');
+// });
+// app.get('/person/:id', function(request, response) {
+//     response.render('person', { id: request.params.id });
+// });
+app.get('/person/:id', function(request, response) {
+    response.render('person', { id: request.params.id, queryString: request.query.age });
+});
+
+app.post('/person', urlencodedParser, function(request, response) {
+    response.send('Thank you');
+    console.log(request.body.firstName);
+    console.log(request.body.lastName);
+});
+
+app.post('/personJson', jsonParser, function(request, response) {
+    response.send('Thank you for sending json data');
+    console.log(request.body.firstName);
+    console.log(request.body.lastName);
+});
+
+app.get('/person/:page/:id', function(request, response) {
+    response.send('<html><head></head><body><h1>Person: '+ request.params.page +'</h1><h1> id: '+ request.params.id +'</h1></body></html>');
+});
+app.get('/api', function(request, response) {
+    response.json({
+        firstName: 'Ali',
+        lastName: 'Khan'
+    });
+});
+
+app.listen(port);
