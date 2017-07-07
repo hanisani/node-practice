@@ -551,10 +551,24 @@ app.post('/person', urlencodedParser, function(request, response) {
     console.log(request.body.lastName);
 });
 
-app.post('/personJson', jsonParser, function(request, response) {
-    response.send('Thank you for sending json data');
-    console.log(request.body.firstName);
-    console.log(request.body.lastName);
+// app.post('/personJson', jsonParser, function(request, response) {
+//     response.send('Thank you for sending json data');
+//     console.log(request.body.firstName);
+//     console.log(request.body.lastName);
+// });
+
+// RESTful api URLs looks like below
+// 1.
+app.get('/api/person/:id', function(request, response) {
+    // get data from the database
+});
+// 2.
+app.post('/api/person', jsonParser, function(request, response) {
+    // save data to the database
+});
+// 3.
+app.delete('/api/person/:id', function(request, response) {
+    // delete data from the database
 });
 
 app.get('/person/:page/:id', function(request, response) {
