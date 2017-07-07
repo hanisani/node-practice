@@ -303,13 +303,140 @@
 // faheem.greet();
 
 // Twenty Fourth Lecture
-'use strict';
-var Greeter = require('./greeter');
+// 'use strict';
+// var Greeter = require('./greeter');
 
-var greeter = new Greeter();
+// var greeter = new Greeter();
 
-greeter.on('greet', function(data) {
-    console.log('Someone greeted : ' + data);
-});
+// greeter.on('greet', function(data) {
+//     console.log('Someone greeted : ' + data);
+// });
 
-greeter.greet('Faheem');
+// greeter.greet('Faheem');
+
+// Twenty Fifth Lecture
+// var buffer = new Buffer('Hello', 'utf8');
+// console.log(buffer);
+// console.log(buffer.toString());
+// console.log(buffer.toJSON());
+// console.log(buffer[2]);
+// buffer.write('wo');
+// console.log(buffer.toString());
+
+// Twenty Sixth Lecture
+// var buffer = new ArrayBuffer(8);
+// var view = new Int32Array(buffer);
+// view[0] = 5;
+// view[1] = 15;
+// console.log(view);
+
+// Twenty Seventh Lecture
+// function greet(callback) {
+//     console.log('Hello');
+//     var data = {
+//         name: 'Faheem Ahmad'
+//     };
+//     callback(data);
+// }
+
+// greet(function(data) {
+//     console.log('The callback was invoked');
+//     console.log(data);
+// });
+
+// greet(function(data) {
+//     console.log('The callback was invoked again');
+//     console.log(data.name);
+// });
+
+// Twenty Eighth Lecture
+// var fs = require('fs');
+// var greet = fs.readFileSync(__dirname + '/greet.txt', 'utf8');
+
+// console.log(greet);
+
+// // readFile is Asynchronous
+// var greet2 = fs.readFile(__dirname + '/greet.txt', 'utf8', function(err, data) {
+//     console.log(data);
+// });
+
+// console.log('Done');
+
+// Twenty Nineth Lecture
+// var fs = require('fs');
+// var readableStream = fs.createReadStream(__dirname + '/greet.txt', { encoding: 'utf8', highWaterMark: 16*1024 });
+// var writeableStream = fs.createWriteStream(__dirname + '/greetcopy.txt');
+
+// readableStream.on('data', function(chunck) {
+//     //console.log(chunck.length);
+//     //console.log(chunck);
+//     writeableStream.write(chunck);    
+// });
+
+// 30 Lecture
+// var fs = require('fs');
+// var zlib = require('zlib');
+
+// var readableStream = fs.createReadStream(__dirname + '/greet.txt');
+// var writeableStream = fs.createWriteStream(__dirname + '/greetcopy.txt');
+// var compressed = fs.createWriteStream(__dirname + '/greet.txt.gz');
+
+// var gzip = zlib.createGzip();
+
+// readableStream.pipe(writeableStream);
+// readableStream.pipe(gzip).pipe(compressed); // Method chaining/cascading
+
+// 31 Lecture [Build web server in Node]
+// var http = require('http');
+// var fs = require('fs');
+
+// http.createServer(function(request, response) {
+
+//     response.writeHead(200, { 'Content-Type': 'text/html' });
+//     var html = fs.readFileSync(__dirname + '/index.html', 'utf8');
+//     var message = 'Hello Faheem Ahmad';
+//     html = html.replace('{message}', message);
+//     response.end(html);
+
+// }).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
+
+// 32 Lecture
+// var http = require('http');
+// var fs = require('fs');
+
+// http.createServer(function(request, response) {
+
+//     response.writeHead(200, { 'Content-Type': 'text/html' });
+//     fs.createReadStream(__dirname + '/index.html', 'utf8').pipe(response);
+
+// }).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
+
+// 33 Lecture
+// var http = require('http');
+// var fs = require('fs');
+
+// http.createServer(function(request, response) {
+
+//     response.writeHead(200, { 'Content-Type': 'application/json' });
+//     var obj = {
+//         firstName: 'Faheem',
+//         lastName: 'Ahmad'
+//     };
+//     response.end(JSON.stringify(obj));
+
+// }).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
+
+// 34 Lecture
+var http = require('http');
+var fs = require('fs');
+
+http.createServer(function(request, response) {
+
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+    var obj = {
+        firstName: 'Faheem',
+        lastName: 'Ahmad'
+    };
+    response.end(JSON.stringify(obj));
+
+}).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
