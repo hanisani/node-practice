@@ -427,16 +427,64 @@
 // }).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
 
 // 34 Lecture
-var http = require('http');
-var fs = require('fs');
+// var http = require('http');
+// var fs = require('fs');
 
-http.createServer(function(request, response) {
+// http.createServer(function(request, response) {
 
-    response.writeHead(200, { 'Content-Type': 'application/json' });
-    var obj = {
-        firstName: 'Faheem',
-        lastName: 'Ahmad'
-    };
-    response.end(JSON.stringify(obj));
+//     if(request.url == '/') {
+//         fs.createReadStream(__dirname + '/index.html').pipe(response);
+//     }
+//     else if(request.url === '/api') {    
+//         response.writeHead(200, { 'Content-Type': 'application/json' });
+//         var obj = {
+//             firstName: 'Faheem',
+//             lastName: 'Ahmad'
+//         };
+//         response.end(JSON.stringify(obj));
+//     }
+//     else {
+//         response.writeHead(404);
+//         response.end();
+//     }
 
-}).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
+// }).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
+
+// //major.minor.patch ^ (don't update major) or ~ (don't update minor)
+// npm install -g nodemon
+// C:\Users\fahmad\AppData\Roaming\npm\node_modules\nodemon
+
+// 35 Lecture [npm install moment --save] [npm install jasmine-node --save --only=dev]
+// var moment = require('moment');
+// console.log(moment().format());
+// console.log(moment().format("ddd, hh A"));
+
+// 36 Lecture
+// var http = require('http');
+// var fs = require('fs');
+
+// http.createServer(function(request, response) {
+
+//     if(request.url == '/') {
+//         fs.createReadStream(__dirname + '/index.html').pipe(response);
+//     }
+//     else if(request.url === '/json') {    
+//         response.writeHead(200, { 'Content-Type': 'application/json' });
+//         var obj = {
+//             firstName: 'Faheem',
+//             lastName: 'Ahmad'
+//         };
+//         response.end(JSON.stringify(obj));
+//     }
+//     else {
+//         response.writeHead(404);
+//         response.end();
+//     }
+
+// }).listen(1337, '127.0.0.1'); // 127.0.0.1 or localhost
+
+// 37 Lecture
+var express = require('express');
+var app = express();
+
+app.listen(3000);
